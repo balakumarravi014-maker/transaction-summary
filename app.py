@@ -124,8 +124,14 @@ def render_account_dashboard(account_df: pd.DataFrame, account_label: str, key_p
     )
 
     chart_c1, chart_c2 = st.columns(2)
-    top_recv = summary.nlargest(10, "They Sent You (INR)")[["Name", "They Sent You (INR)"]].set_index("Name")
-    top_sent = summary.nlargest(10, "You Sent Them (INR)")[["Name", "You Sent Them (INR)"]].set_index("Name")
+    top_recv = (
+        summary.sort_values("They Sent You (INR)", ascending=False)
+        .head(10)[["Name", "They Sent You (INR)"]].set_index("Name")
+    )
+    top_sent = (
+        summary.sort_values("You Sent Them (INR)", ascending=False)
+        .head(10)[["Name", "You Sent Them (INR)"]].set_index("Name")
+    )
     chart_c1.subheader("Top 10: They Sent You")
     chart_c1.bar_chart(top_recv)
     chart_c2.subheader("Top 10: You Sent Them")
