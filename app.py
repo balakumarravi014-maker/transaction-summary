@@ -9,7 +9,7 @@ st.set_page_config(page_title="Transaction Summary Dashboard", layout="wide")
 
 st.title("Bank Statement Consolidated Dashboard")
 st.caption(
-    "Upload statement PDFs (ICICI or Canara Bank supported, e.g. 10 months each). "
+    "Upload statement PDFs (ICICI, Canara Bank, or Karur Vysya Bank supported, e.g. 10 months each). "
     "Each account holder gets their own report, shown one after another. For every "
     "unique person/counterparty, see how much they sent the account holder and how "
     "much the account holder sent them."
